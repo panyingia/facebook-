@@ -1,0 +1,8 @@
+@tailwind base;
+@layer base {
+  body {
+    @apply m-5 bg-fill;
+  }
+}
+@tailwind components;
+@tailwind utilities;
