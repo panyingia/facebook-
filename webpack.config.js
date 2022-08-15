@@ -1,8 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const CopyPlugin = require("copy-webpack-plugin");
-const webpack = require("webpack");
+const CompressionPlugin = require("compression-webpack-plugin");
 const path = require('path');
 module.exports = {
     target: 'web',
@@ -54,16 +53,7 @@ module.exports = {
         }),
         //打包前清除dist資料夾
         new CleanWebpackPlugin(),
-        // 打包前複製資料夾資源到dist
-        // new CopyPlugin({
-        //     patterns: [
-        //         { from: "./static", to: "./static" }
-        //     ],
-        // }),
-        new webpack.DefinePlugin({
-            PRODUCTION: JSON.stringify(true),
-        }),
-
+        new CompressionPlugin()
     ],
     mode: 'production',
 
